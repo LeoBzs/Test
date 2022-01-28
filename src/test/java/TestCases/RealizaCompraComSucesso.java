@@ -2,25 +2,23 @@ package TestCases;
 
 import Framework.Report;
 import Framework.ReportType;
-import Framework.Screenshot;
-import Framework.TestBase;
+import TestBase;
 import Tasks.*;
-import com.aventstack.extentreports.MediaEntityModelProvider;
 import com.aventstack.extentreports.Status;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 
 public class RealizaCompraComSucesso extends TestBase {
 
-    private WebDriver driver = getDriver();
-    private ClothesTask clothesTask = new ClothesTask(driver);
-    private OrderTask orderTask = new OrderTask(driver);
-    private AuthenticationTask authenticationTask = new AuthenticationTask(driver);
-    private RegistrationTask registrationTask = new RegistrationTask(driver);
-    private ConfirmAddressTask confirmAddressTask = new ConfirmAddressTask(driver);
-    private ShippingTask shippingTask = new ShippingTask(driver);
-    private PaymentTask paymentTask = new PaymentTask(driver);
-    private ConfirmPaymentTask confirmPaymentTask = new ConfirmPaymentTask(driver);
+    private final WebDriver driver = getDriver();
+    private final ClothesTask clothesTask = new ClothesTask(driver);
+    private final OrderTask orderTask = new OrderTask(driver);
+    private final AuthenticationTask authenticationTask = new AuthenticationTask(driver);
+    private final RegistrationTask registrationTask = new RegistrationTask(driver);
+    private final ConfirmAddressTask confirmAddressTask = new ConfirmAddressTask(driver);
+    private final ShippingTask shippingTask = new ShippingTask(driver);
+    private final PaymentTask paymentTask = new PaymentTask(driver);
+    private final ConfirmPaymentTask confirmPaymentTask = new ConfirmPaymentTask(driver);
 
     @Test
     public void realizarCompraComSucesso(){
@@ -40,7 +38,7 @@ public class RealizaCompraComSucesso extends TestBase {
             Report.createTest("Purchase successful!", ReportType.SINGLE);
 
         }catch (Exception e) {
-            Report.log(Status.FAIL, e.getMessage(), (MediaEntityModelProvider) Screenshot.fullPageBase64(driver));
+            Report.log(Status.FAIL, e.getMessage());
         }
     }
 }

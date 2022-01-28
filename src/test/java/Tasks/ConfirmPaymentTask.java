@@ -1,17 +1,14 @@
 package Tasks;
-
 import Framework.Report;
-import Framework.Screenshot;
 import PageObjects.ConfirmPaymentPage;
 import Utils.Highlights;
-import com.aventstack.extentreports.MediaEntityModelProvider;
 import com.aventstack.extentreports.Status;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 
 public class ConfirmPaymentTask {
-    private WebDriver driver;
-    private ConfirmPaymentPage confirmPaymentPage;
+    private final WebDriver driver;
+    private final ConfirmPaymentPage confirmPaymentPage;
 
     public ConfirmPaymentTask(WebDriver driver) {
         this.driver = driver;
@@ -32,7 +29,7 @@ public class ConfirmPaymentTask {
             Report.log(Status.PASS, "Mensagem na tela!");
 
         }catch (Exception e){
-            Report.log(Status.FAIL, "Página não foi carregada", (MediaEntityModelProvider) Screenshot.fullPageBase64(driver));
+            Report.log(Status.FAIL, "Página não foi carregada");
         }
     }
 }

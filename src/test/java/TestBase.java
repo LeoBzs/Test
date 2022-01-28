@@ -1,15 +1,15 @@
-package Framework;
-
+import Framework.DriverManager;
+import Framework.Paths;
+import Framework.Report;
+import Framework.TypeDriver;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 
 public class TestBase extends DriverManager {
-    private static WebDriver driver;
 
     public static WebDriver getDriver(){
-        driver = getDriver(TypeDriver.CHROME);
-        return driver;
+        return getDriver(TypeDriver.CHROME);
     }
 
     @BeforeEach

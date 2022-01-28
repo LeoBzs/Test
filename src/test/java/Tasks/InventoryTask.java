@@ -1,22 +1,18 @@
 package Tasks;
 
 import Framework.Report;
-import Framework.Screenshot;
 import PageObjects.InventoryItemPage;
 import PageObjects.InventoryPage;
 import Utils.FileOperations;
-import com.aventstack.extentreports.MediaEntityModelProvider;
 import com.aventstack.extentreports.Status;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 
 public class InventoryTask {
-    private WebDriver driver;
-    private InventoryPage inventoryPage;
-    private InventoryItemPage inventoryItemPage;
+    private final InventoryPage inventoryPage;
+    private final InventoryItemPage inventoryItemPage;
 
     public InventoryTask(WebDriver driver) {
-        this.driver = driver;
         inventoryPage = new InventoryPage(driver);
         inventoryItemPage = new InventoryItemPage(driver);
     }
@@ -40,9 +36,9 @@ public class InventoryTask {
             String textoExtraido = inventoryItemPage.getItemNameTextField().getText();
 
             Assertions.assertEquals(FileOperations.getProperties("data.properties").getProperty("itemName"), textoExtraido);
-            Report.log(Status.PASS, "Página de InventoryItem foi carregada com sucesso!", (MediaEntityModelProvider) Screenshot.capture(driver));
+            Report.log(Status.PASS, "Página de InventoryItem foi carregada com sucesso!");
         } catch (Exception e) {
-            Report.log(Status.FAIL, "Pagina não foi carregada!", (MediaEntityModelProvider) Screenshot.fullPageBase64(driver));
+            Report.log(Status.FAIL, "Pagina não foi carregada!");
         }
     }
 }

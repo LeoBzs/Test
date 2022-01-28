@@ -6,11 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class AuthenticationPage {
-    private WebDriver driver;
-    private Waits waits;
+    private final Waits waits;
 
     public AuthenticationPage(WebDriver driver){
-        this.driver = driver;
         waits = new Waits(driver);
     }
 

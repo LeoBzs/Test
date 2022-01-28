@@ -5,11 +5,9 @@ import Utils.FileOperations;
 import org.openqa.selenium.WebDriver;
 
 public class RegistrationTask {
-    private WebDriver driver;
     RegistrationPage registrationPage;
 
     public RegistrationTask(WebDriver driver){
-        this.driver = driver;
         registrationPage = new RegistrationPage(driver);
     }
 

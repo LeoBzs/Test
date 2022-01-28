@@ -6,11 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class ClothesPage {
-    private WebDriver driver;
-    private Waits waits;
+    private final Waits waits;
 
     public ClothesPage(WebDriver driver){
-        this.driver = driver;
         waits = new Waits(driver);
     }
 
